@@ -28,6 +28,8 @@ RUN mkdir ./pages
 COPY --chown=user /pages ./pages
 COPY --chown=user /Home.py ./Home.py
 
+# new version of leafmap
+
 RUN pip install jupyter-server-proxy
 
 ENV JUPYTER_ENABLE_LAB=yes
