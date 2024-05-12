@@ -1,6 +1,6 @@
 import os
 
-os.environ['LOCALTILESERVER_CLIENT_PREFIX'] = f'{os.environ['JUPYTERHUB_SERVICE_PREFIX'].lstrip('/')}/proxy/{{port}}'
+os.environ['LOCALTILESERVER_CLIENT_PREFIX'] = f"{os.environ['JUPYTERHUB_SERVICE_PREFIX'].lstrip('/')}/proxy/{{port}}"
 print(os.environ['LOCALTILESERVER_CLIENT_PREFIX'])
 
 import streamlit as st
