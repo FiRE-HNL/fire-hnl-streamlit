@@ -6,7 +6,6 @@ import rioxarray as rxr
 import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 
-from PIL import Image
 from matplotlib.animation import FuncAnimation
 # from huggingface_hub import hf_hub_download
 # from streamlit_extras.badges import badge
@@ -43,8 +42,7 @@ st.markdown(
 )
 
 # set study area image in the dashboard
-img = Image.open('images/study_area.jpeg')
-st.image('https://files.blogs.illinois.edu/files/6367/265408/76088.jpg')#img)
+st.image('https://files.blogs.illinois.edu/files/6367/265408/76088.jpg')
 
 st.markdown(
     """
