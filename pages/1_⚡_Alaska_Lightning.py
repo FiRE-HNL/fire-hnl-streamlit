@@ -101,7 +101,7 @@ from ipyleaflet import Map
 # First, create a tile server from local raster file
 client = examples.get_san_francisco()
 print(client)
-print(client.port)
+print(client.server.port)
 
 # Create ipyleaflet tile layer from that server
 t = get_leaflet_tile_layer(client)
