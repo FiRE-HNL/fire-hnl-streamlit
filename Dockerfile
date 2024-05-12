@@ -9,13 +9,13 @@ RUN rm -rf /etc/apt/sources.list.d/*.list && \
 RUN python3 -m pip install --upgrade pip setuptools wheel
 
 COPY requirements.txt .
-RUN python3 -m pip install --upgrade --no-cache-dir pip setuptools wheel cython numpy pyshp six pyproj streamlit-folium leafmap psutil geopandas rioxarray localtileserver huggingface_hub
+RUN python3 -m pip install -U --no-cache-dir pip setuptools wheel cython numpy pyshp six pyproj streamlit-folium leafmap psutil geopandas rioxarray localtileserver huggingface_hub
 
 #RUN python3 -m pip install --upgrade --no-cache-dir --no-binary :all: shapely
 #RUN python3 -m pip install --no-cache-dir git+https://github.com/SciTools/cartopy.git --upgrade cartopy
 
 #RUN python3 -m pip install --no-cache-dir --compile -r requirements.txt
-RUN python3 -m pip install --no-cache-dir -r requirements.txt
+RUN python3 -m pip install --no-cache-dir -r -U requirements.txt
 
 RUN useradd -m -u 1000 user
 USER user
