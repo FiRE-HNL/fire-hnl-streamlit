@@ -96,7 +96,7 @@ with col1:
 """
 
 from streamlit_folium import folium_static
-from localtileserver import TileClient, get_leaflet_tile_layer, examples
+from localtileserver import TileClient, get_leaflet_tile_layer, examples, get_folium_tile_layer
 from ipyleaflet import Map
 
 # First, create a tile server from local raster file
@@ -105,7 +105,8 @@ print(client)
 print(client.server.port)
 
 # Create ipyleaflet tile layer from that server
-t = get_leaflet_tile_layer(client)
+#t = get_leaflet_tile_layer(client)
+t = get_folium_tile_layer(client)
 
 m = Map(center=client.center(), zoom=client.default_zoom)
 m.add(t)
