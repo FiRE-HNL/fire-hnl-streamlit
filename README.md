@@ -4,7 +4,7 @@ emoji: 🔥
 colorFrom: red
 colorTo: red
 sdk: streamlit
-app_file: app.py
+app_file: Home.py
 pinned: true
 ---
 

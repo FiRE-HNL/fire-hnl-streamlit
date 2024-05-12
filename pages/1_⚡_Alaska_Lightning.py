@@ -31,6 +31,7 @@ print(dataset_path)
 
 # define layers dict
 options = sorted(glob(os.path.join(dataset_path, '*/*.tif')))
+print("OPTIONS", options)
 
 col1, col2 = st.columns([4, 1])
 
@@ -44,7 +45,7 @@ index = 0 #options.index("OpenTopoMap")
 with col2:
     current_forecast_date = st.selectbox("Current Forecast Window:", options, index, format_func=format_filename)
     previous_forecast_date = st.selectbox("Previous Forecast Window:", options, index, format_func=format_filename)
-    legacy_forecast_date = st.selectbox("Legacy Examples:", options, index)
+    #legacy_forecast_date = st.selectbox("Legacy Examples:", options, index)
     print(current_forecast_date)
 
 m = leafmap.Map(
@@ -57,6 +58,14 @@ m = leafmap.Map(
 m.add_basemap("OpenTopoMap")
 
 with col1:
+
+    dataset_path = snapshot_download(
+        repo_id="loboda-umd/fire-hnl-lightning-2016",
+        #subfolder="2016-06-01_2016-06-11",
+        repo_type="dataset",
+        #filename='d02_2016-06-01_00-00-00_0-warp-lightning-clipped.tif'
+        #allow_patterns=["*.tif"]
+    )
 
     m.add_raster(
         current_forecast_date,
