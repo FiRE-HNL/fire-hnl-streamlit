@@ -7,5 +7,4 @@ streamlit-extras
 psutil
 localtileserver
 cartopy
-geopandas
 huggingface_hub
