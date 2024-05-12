@@ -95,6 +95,7 @@ with col1:
 
 """
 
+from streamlit_folium import folium_static
 from localtileserver import TileClient, get_leaflet_tile_layer, examples
 from ipyleaflet import Map
 
@@ -108,4 +109,4 @@ t = get_leaflet_tile_layer(client)
 
 m = Map(center=client.center(), zoom=client.default_zoom)
 m.add(t)
-m
+folium_static(m)
