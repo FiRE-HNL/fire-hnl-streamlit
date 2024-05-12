@@ -1,11 +1,5 @@
 import os
-
-os.environ['LOCALTILESERVER_CLIENT_PREFIX'] = 'proxy/{port}'
-
 import leafmap as leafmap_api
-
-print(leafmap_api.__version__)
-
 import streamlit as st
 import leafmap.foliumap as leafmap
 from glob import glob
@@ -65,7 +59,8 @@ m = leafmap.Map(
     locate_control=True, latlon_control=True,
     draw_export=True, minimap_control=True,
     center=[30, -40],
-    zoom=13
+    zoom=13,
+    google_map='terrain'
 
 )
 m.add_basemap("OpenTopoMap")
@@ -79,7 +74,7 @@ with col1:
     #    #filename='d02_2016-06-01_00-00-00_0-warp-lightning-clipped.tif'
     #    #allow_patterns=["*.tif"]
     #)
-
+    print(current_forecast_date)
     m.add_raster(
         current_forecast_date,
         bands=[1],
@@ -91,4 +86,4 @@ with col1:
 
     # folium does not support this
     # m.add_time_slider(layers_dict, time_interval=1)
-    m.to_streamlit(height=700, bidirectional=True)
+    m.to_streamlit(height=700)
