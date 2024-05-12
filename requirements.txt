@@ -8,3 +8,4 @@ psutil
 localtileserver
 cartopy
 huggingface_hub
+streamlit-folium

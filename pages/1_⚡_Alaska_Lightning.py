@@ -86,4 +86,4 @@ with col1:
 
     # folium does not support this
     # m.add_time_slider(layers_dict, time_interval=1)
-    m.to_streamlit(height=700)
+    m.to_streamlit(height=700, bidirectional=True)
