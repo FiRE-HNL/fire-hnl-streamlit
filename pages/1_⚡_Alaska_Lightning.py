@@ -14,6 +14,7 @@ FiRE-HNL Beta Dashboard
 Validation of lightning probability maps during fire season 2024.
 """
 
+"""
 st.sidebar.title("About")
 st.sidebar.info(markdown)
 logo = "https://i.imgur.com/UbOXYAU.png"
@@ -91,3 +92,20 @@ with col1:
     # folium does not support this
     # m.add_time_slider(layers_dict, time_interval=1)
     m.to_streamlit(height=700, bidirectional=True)
+
+"""
+
+from localtileserver import TileClient, get_leaflet_tile_layer, examples
+from ipyleaflet import Map
+
+# First, create a tile server from local raster file
+client = examples.get_san_francisco()
+print(client)
+print(client.port)
+
+# Create ipyleaflet tile layer from that server
+t = get_leaflet_tile_layer(client)
+
+m = Map(center=client.center(), zoom=client.default_zoom)
+m.add(t)
+m
