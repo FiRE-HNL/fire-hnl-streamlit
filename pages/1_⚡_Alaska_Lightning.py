@@ -6,6 +6,7 @@ from glob import glob
 from pathlib import Path
 from datetime import date, timedelta
 from huggingface_hub import hf_hub_download, snapshot_download
+import folium
 
 st.set_page_config(layout="wide")
 
@@ -108,6 +109,6 @@ print(client.server.port)
 #t = get_leaflet_tile_layer(client)
 t = get_folium_tile_layer(client)
 
-m = Map(center=client.center(), zoom=client.default_zoom)
+m = folium.Map(center=client.center(), zoom=client.default_zoom)
 m.add(t)
 folium_static(m)
