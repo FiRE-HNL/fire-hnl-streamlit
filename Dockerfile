@@ -28,6 +28,13 @@ RUN mkdir ./pages
 COPY --chown=user /pages ./pages
 COPY --chown=user /Home.py ./Home.py
 
+RUN pip install jupyter-server-proxy
+
+ENV JUPYTER_ENABLE_LAB=yes
+
+ARG LOCALTILESERVER_CLIENT_PREFIX='proxy/{port}'
+ENV LOCALTILESERVER_CLIENT_PREFIX=$LOCALTILESERVER_CLIENT_PREFIX
+
 EXPOSE 7860
 
 CMD ["streamlit", "run", "./Home.py", "--server.port=7860"]
