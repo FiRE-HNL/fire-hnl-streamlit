@@ -1,8 +1,4 @@
 import os
-
-os.environ['LOCALTILESERVER_CLIENT_PREFIX'] = f"{os.environ['JUPYTERHUB_SERVICE_PREFIX'].lstrip('/')}/proxy/{{port}}"
-print(os.environ['LOCALTILESERVER_CLIENT_PREFIX'])
-
 import streamlit as st
 import leafmap.foliumap as leafmap
 from glob import glob
@@ -49,7 +45,7 @@ index = 0 #options.index("OpenTopoMap")
 with col2:
     current_forecast_date = st.selectbox("Current Forecast Window:", options, index, format_func=format_filename)
     previous_forecast_date = st.selectbox("Previous Forecast Window:", options, index, format_func=format_filename)
-    #legacy_forecast_date = st.selectbox("Legacy Examples:", options, index)
+    legacy_forecast_date = st.selectbox("Legacy Examples:", options, index)
     print(current_forecast_date)
 
 m = leafmap.Map(
