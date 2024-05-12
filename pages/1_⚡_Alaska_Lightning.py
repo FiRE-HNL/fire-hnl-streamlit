@@ -1,4 +1,7 @@
 import os
+
+os.environ['LOCALTILESERVER_CLIENT_PREFIX'] = 'proxy/{port}'
+
 import streamlit as st
 import leafmap.foliumap as leafmap
 from glob import glob
