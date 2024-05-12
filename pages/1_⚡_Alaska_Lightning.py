@@ -55,9 +55,9 @@ col1, col2 = st.columns([4, 1])
 index = 0 #options.index("OpenTopoMap")
 
 with col2:
-    current_forecast_date = st.selectbox("Current Forecast Window:", options_2024, index, format_func=format_filename)
-    previous_forecast_date = st.selectbox("Previous Forecast Window:", options_2024, index, format_func=format_filename)
-    legacy_forecast_date = st.selectbox("Legacy Examples:", options_2016, index, format_func=format_filename)
+    current_forecast_date = st.selectbox("Current Forecast Window:", options_2024, index)#, format_func=format_filename)
+    previous_forecast_date = st.selectbox("Previous Forecast Window:", options_2024, index)#, format_func=format_filename)
+    legacy_forecast_date = st.selectbox("Legacy Examples:", options_2016, index)#, format_func=format_filename)
 
 m = leafmap.Map(
     locate_control=True, latlon_control=True,
