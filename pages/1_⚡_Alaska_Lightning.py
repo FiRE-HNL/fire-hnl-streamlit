@@ -46,8 +46,8 @@ options_2016 = [
     'https://data.kitware.com/api/v1/file/626854a14acac99f42126a74/download'
 ]#sorted(glob(os.path.join(dataset_path_2016, '*/*.tif')))
 
-st.title(f"Lightning Forecast: {format_filename(options_2024[0])} to {format_filename(options_2024[-1])}")
-
+#st.title(f"Lightning Forecast: {format_filename(options_2024[0])} to {format_filename(options_2024[-1])}")
+st.title(f"Lightning Forecast")
 col1, col2 = st.columns([4, 1])
 
 # options = layers_dict #list(leafmap.basemaps.keys())
