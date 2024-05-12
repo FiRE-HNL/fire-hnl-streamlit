@@ -1,4 +1,8 @@
 import os
+
+os.environ['LOCALTILESERVER_CLIENT_PREFIX'] = f'{os.environ['JUPYTERHUB_SERVICE_PREFIX'].lstrip('/')}/proxy/{{port}}'
+print(os.environ['LOCALTILESERVER_CLIENT_PREFIX'])
+
 import streamlit as st
 import leafmap.foliumap as leafmap
 from glob import glob
@@ -67,6 +71,7 @@ with col1:
         #allow_patterns=["*.tif"]
     )
 
+    
     m.add_raster(
         current_forecast_date,
         bands=[1],
@@ -75,7 +80,7 @@ with col1:
         colormap='jet',
         layer_name=Path(current_forecast_date).stem
     )
-        
+
     # folium does not support this
     # m.add_time_slider(layers_dict, time_interval=1)
     m.to_streamlit(height=700)
