@@ -39,8 +39,12 @@ def format_filename(filename):
     return f'{Path(filename).stem}'.split('_')[1]
 
 # define layers dict
-options_2024 = sorted(glob(os.path.join(dataset_path_2024, '*/*.tif')))
-options_2016 = sorted(glob(os.path.join(dataset_path_2016, '*/*.tif')))
+options_2024 = [
+    'https://data.kitware.com/api/v1/file/626854a14acac99f42126a74/download'
+]#sorted(glob(os.path.join(dataset_path_2024, '*/*.tif')))
+options_2016 = [
+    'https://data.kitware.com/api/v1/file/626854a14acac99f42126a74/download'
+]#sorted(glob(os.path.join(dataset_path_2016, '*/*.tif')))
 
 st.title(f"Lightning Forecast: {format_filename(options_2024[0])} to {format_filename(options_2024[-1])}")
 
