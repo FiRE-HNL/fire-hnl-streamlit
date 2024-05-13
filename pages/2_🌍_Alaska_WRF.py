@@ -9,7 +9,7 @@ from localtileserver import TileClient, get_leaflet_tile_layer, examples, get_fo
 from ipyleaflet import Map
 
 # First, create a tile server from local raster file
-client = examples.get_san_francisco(client_port=8501)
+client = examples.get_san_francisco(client_port=8501, debug=True, port=8080)
 print(client)
 print(client.server.port)
 
