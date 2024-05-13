@@ -15,7 +15,7 @@ print(client.server.port)
 
 # Create ipyleaflet tile layer from that server
 #t = get_leaflet_tile_layer(client)
-t = get_folium_tile_layer(client, client_port=8501)
+t = get_folium_tile_layer(client)
 
 m = folium.Map(center=client.center())#, zoom=client.default_zoom)
 m.add_child(t)
