@@ -109,6 +109,6 @@ print(client.server.port)
 #t = get_leaflet_tile_layer(client)
 t = get_folium_tile_layer(client)
 
-m = folium.Map(center=client.center(), zoom=client.default_zoom)
+m = folium.Map(center=client.center())#, zoom=client.default_zoom)
 m.add(t)
 folium_static(m)
