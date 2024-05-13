@@ -15,7 +15,7 @@ FiRE-HNL Beta Dashboard
 Validation of lightning probability maps during fire season 2024.
 """
 
-"""
+
 st.sidebar.title("About")
 st.sidebar.info(markdown)
 logo = "https://i.imgur.com/UbOXYAU.png"
@@ -87,28 +87,10 @@ with col1:
         vmin=0,
         vmax=100,
         colormap='jet',
-        layer_name=Path(current_forecast_date).stem
+        layer_name=Path(current_forecast_date).stem,
+        client_port=8501
     )
 
     # folium does not support this
     # m.add_time_slider(layers_dict, time_interval=1)
     m.to_streamlit(height=700, bidirectional=True)
-
-"""
-
-from streamlit_folium import folium_static
-from localtileserver import TileClient, get_leaflet_tile_layer, examples, get_folium_tile_layer
-from ipyleaflet import Map
-
-# First, create a tile server from local raster file
-client = examples.get_san_francisco()
-print(client)
-print(client.server.port)
-
-# Create ipyleaflet tile layer from that server
-#t = get_leaflet_tile_layer(client)
-t = get_folium_tile_layer(client, client_port=8501)
-
-m = folium.Map(center=client.center())#, zoom=client.default_zoom)
-m.add_child(t)
-folium_static(m)
