@@ -85,7 +85,8 @@ with col1:
         colormap='jet',
         layer_name=Path(current_forecast_date).stem,
         client_port=8501,
-        port=8080
+        port=8080,
+        debug=True
     )
 
     # folium does not support this
