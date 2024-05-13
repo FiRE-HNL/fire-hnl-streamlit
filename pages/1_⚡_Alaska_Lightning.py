@@ -110,5 +110,5 @@ print(client.server.port)
 t = get_folium_tile_layer(client)
 
 m = folium.Map(center=client.center())#, zoom=client.default_zoom)
-m.add(t)
+m.add_child(t)
 folium_static(m)
