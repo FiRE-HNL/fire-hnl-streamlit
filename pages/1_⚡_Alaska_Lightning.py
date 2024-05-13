@@ -41,12 +41,8 @@ def format_filename(filename):
     return f'{Path(filename).stem}'.split('_')[1]
 
 # define layers dict
-options_2024 = [
-    'https://data.kitware.com/api/v1/file/626854a14acac99f42126a74/download'
-]#sorted(glob(os.path.join(dataset_path_2024, '*/*.tif')))
-options_2016 = [
-    'https://data.kitware.com/api/v1/file/626854a14acac99f42126a74/download'
-]#sorted(glob(os.path.join(dataset_path_2016, '*/*.tif')))
+options_2024 = sorted(glob(os.path.join(dataset_path_2024, '*/*.tif')))
+options_2016 = sorted(glob(os.path.join(dataset_path_2016, '*/*.tif')))
 
 #st.title(f"Lightning Forecast: {format_filename(options_2024[0])} to {format_filename(options_2024[-1])}")
 st.title(f"Lightning Forecast")
@@ -57,9 +53,9 @@ col1, col2 = st.columns([4, 1])
 index = 0 #options.index("OpenTopoMap")
 
 with col2:
-    current_forecast_date = st.selectbox("Current Forecast Window:", options_2024, index)#, format_func=format_filename)
-    previous_forecast_date = st.selectbox("Previous Forecast Window:", options_2024, index)#, format_func=format_filename)
-    legacy_forecast_date = st.selectbox("Legacy Examples:", options_2016, index)#, format_func=format_filename)
+    current_forecast_date = st.selectbox("Current Forecast Window:", options_2024, index, format_func=format_filename)
+    previous_forecast_date = st.selectbox("Previous Forecast Window:", options_2024, index, format_func=format_filename)
+    legacy_forecast_date = st.selectbox("Legacy Examples:", options_2016, index, format_func=format_filename)
 
 m = leafmap.Map(
     locate_control=True, latlon_control=True,
@@ -88,7 +84,8 @@ with col1:
         vmax=100,
         colormap='jet',
         layer_name=Path(current_forecast_date).stem,
-        client_port=8501
+        client_port=8501,
+        port=8080
     )
 
     # folium does not support this
